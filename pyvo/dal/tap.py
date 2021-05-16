@@ -838,7 +838,7 @@ class AsyncTAPJob:
 
         response.raw.read = partial(
             response.raw.read, decode_content=True)
-        return TAPResults(votableparse(response.raw.read), url=self.result_uri, session=self._session)
+        return TAPResults(votableparse(response.raw.read, invalid='mask'), url=self.result_uri, session=self._session)
 
 
 class TAPQuery(DALQuery):
